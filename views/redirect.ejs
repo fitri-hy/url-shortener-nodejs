@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Redirect | Powered by I-As.Dev</title>
+	<meta name="description" content="Turn long URLs into elegant short links with our URL shortening service.">
+  
+	<meta property="og:title" content="URL Shortener | Powered by I-As.Dev">
+	<meta property="og:description" content="Turn long URLs into elegant short links with our URL shortening service.">
+	<meta property="og:image" content="https://<%= domain %>/images/bg.webp">
+	<meta property="og:url" content="https://<%= domain %>">
+	<meta property="og:type" content="website">
+  
+	<meta name="author" content="HyTech Group">
+	<meta name="robots" content="index, follow">
+	
+	<link rel="icon" href="/images/logo.png" type="image/png">
+	<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col bg-slate-100">
+    <header class="px-4 pt-4">
+        <div class="flex justify-center items-center text-center w-full h-h-auto">
+			<img class="w-full h-full object-cover rounded" src="https://asset.morefurniture.id/NEWS/2022/Banner-Atas-250.gif">
+		</div>
+    </header>
+    <div class="flex flex-col lg:flex-row flex-grow p-4 gap-4">
+        <aside class="lg:block lg:w-[400px] h-full">
+            <div class="flex justify-center items-center mb-4 w-full h-auto">
+				<img class="w-full h-full object-cover rounded" src="https://everpro.id/wp-content/uploads/2023/11/5abac42336b810cfbbf87c7711b70f2f.webp">
+			</div>
+            <div class="flex justify-center items-center w-full h-auto">
+				<img class="w-full h-full object-cover rounded" src="https://lh5.googleusercontent.com/TAns9f9xS3hk_dr18fn3yCFQWMkzopAgS7qocoqgjnh8ws54OWHDrvWVC7p0-OTKMls-u7MD_udrN7T6RCPmh9YzotNvMOsdGvFlPYD6C-SdKXMTeAIUKsmTZN7IJ-45rhNjubpzxGJuO-HfRHR2x0E">
+            </div>
+            <div class="flex justify-center items-center w-full h-auto">
+				<img class="w-full h-full object-cover rounded" src="https://i.ytimg.com/vi/IgnxpqQK4-8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCgCz2akM9swtyds4mizCPYeswOEg">
+            </div>
+        </aside>
+		<main class="w-full flex flex-col gap-4">
+			<div class="flex justify-center items-center text-center mb-4 w-full h-auto">
+				<img class="w-full h-full object-cover rounded" src="https://atasaspal.files.wordpress.com/2018/09/bannerblogfix.gif?w=584">	
+			</div>
+			
+			
+			
+			<div class="bg-white w-full rounded-lg shadow px-4 py-12 flex flex-col">
+				<div class="flex flex-col justify-center items-center">
+					<p class="text-green-600 font-extrabold text-3xl">PLEASE WAITING !!</p>
+					<p class="text-gray-700 mt-2">Will be redirected in</p>
+					<p class="px-4 py-2 rounded-md bg-green-600 text-white mt-4"><span id="countdown">><%= countdown %></span> seconds...</p>
+				</div>
+			</div>
+			
+			
+			
+			<div class="flex justify-center items-center text-center w-full h-auto">
+				<img class="w-full h-full object-cover rounded" src="https://konkret.id/wp-content/uploads/2023/08/GIF_Banner-1_Atas.gif">				
+			</div>
+		</main>
+        <aside class="lg:block lg:w-[400px] h-full">
+            <div class="flex justify-center items-center mb-4 p-4 w-full h-auto">
+				<img class="w-full h-full object-cover rounded" src="https://imgx.sonora.id/crop/0x0:0x0/x/photo/2023/05/18/whatsapp-image-2022-11-13-at-16-20230518124718.jpeg">
+            </div>
+            <div class="flex justify-center items-center p-4 w-full h-auto">
+				<img class="w-full h-full object-cover rounded" src="https://awsimages.detik.net.id/community/media/visual/2023/01/11/iklan-baskin-robbins.jpeg?w=576">
+            </div>
+            <div class="flex justify-center items-center w-full h-auto">
+				<img class="w-full h-full object-cover rounded" src="https://ulilalbab.org/wp-content/uploads/2024/04/SEDEKAH-SUBUH-MARI-BERBAGI-534x300.gif">
+            </div>
+        </aside>
+    </div>
+    <footer class="px-4 pb-4">
+        <div class="flex justify-center items-center w-full h-auto">
+			<img class="w-full h-full object-cover rounded" src="">	
+        </div>
+    </footer>
+    <script>
+        const countdownElement = document.getElementById('countdown');
+        let countdown = <%= countdown %>;
+
+        const interval = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+            if (countdown === 0) {
+                clearInterval(interval);
+                window.location.href = "<%= url_origin %>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
